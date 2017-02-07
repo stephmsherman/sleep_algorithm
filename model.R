@@ -10,19 +10,15 @@ print(c(mean(good_fit),AIC(model)))
 ###DATA COMBINING ALL PARTICIPANTS ACTIGRAPH AND PSG DATA
 a=read.csv("~/Dropbox/Studies/hixon_stats_project/actigraph_psg_data/processed/combined/all_combined.csv")
 a=a[a$PDRID!="5782",]
+
 #this the output of the standard algorithm for sleep/wake 
 standard_fit=ifelse(a$sleep_wake== a$ARSLEEPP,1,0)
 mean(standard_fit)
 
-# a$seq=seq(1:dim(a)[1])
-# plot(a$seq[1:200],standard_fit[1:200],xaxs="i", ylim=c(0,1), las=1,type="p",xaxt="n", col=ifelse(standard_fit==0,"red","white"),cex=2,pch=20)
-# axis(side=1,at = a$seq[1:200],labels=a$time.x[1:200],cex.axis=.5,las=1)
-
-
 ##looking at different models
 #models = include 4 previous minutes and 2 subsequent minutes to predict whether the person was awake or asleep at that minute
-
 model=glm(sleep_wake~ARACTIVP+ARACTIVP_prev1+ ARACTIVP_prev2 + ARACTIVP_prev3 + ARACTIVP_prev4 +ARACTIVP1+ARACTIVP2,family=binomial, a) 
+
 summary(model)
 
 model_fit(model,a)
