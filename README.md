@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> b42e8cf0d120e1cec6eb3ac466272a74c1406430
 #Sleep Algorithm
 
 ###Purpose:<br/>
@@ -9,4 +13,8 @@ Participants wore a wrist actigraph while undergoing PSG recording during one ni
 
 Information about the data: https://www.ncbi.nlm.nih.gov/pubmed/18274276
 
+<<<<<<< HEAD
 Please examine the **Sherman sleep algorithm.pdf** for details and preliminary results
+=======
+Please examine the **Sherman sleep algorithm.pdf** for details and preliminary results
+>>>>>>> b42e8cf0d120e1cec6eb3ac466272a74c1406430

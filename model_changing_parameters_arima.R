@@ -47,6 +47,15 @@ mean(fit)
 a_sleep=a[a$sleep_wake==1,]
 a_wake=a[a$sleep_wake==0,]
 
+#######graph
+one=a[a$PDRID=="10305",]
+par(mfrow=c(3,1))
+par(mar=c(2,4,1,0))
+plot(one$seq,one$sleep_wake,type="l",las=1)
+plot(one$seq,one$ARSLEEPP,type="l",las=1)
+plot(one$seq,one$p,type="l",las=1)
+
+
 
 #RESULTS
 fit_sleep=ifelse(a_sleep$sleep_wake== a_sleep$p, 1,0)
@@ -72,7 +81,6 @@ mean(fit_wake_standard)
 ###
 #leave one participant out cross validation
 d=a[,c("PDRID","date_time","sleep_wake","ARSLEEPP","ARACTIVP","ARACTIVP_prev1","ARACTIVP_prev2","ARACTIVP_prev3","ARACTIVP_prev4","ARACTIVP1","ARACTIVP2")]
-#sink("/Volumes/schnyer/stephanie/sleep_algorithm_project/results/model_results.txt")
 
 #create time series column
 d$date_time=ts(d$date_time)
@@ -164,7 +172,8 @@ algorithm=c(as.character(sub[i]),round(mean(fit),3),round(mean(fit_standard),3),
 newline=data.frame(t(algorithm))
 results=rbind(results, newline)
 }
-#sink()
+
+
 colnames(results)=c("subject","accuracy","accuracy_standard","sensitivity",'sensitivity_standard',"specificity","specificity_standard","min_sleep","min_wake")
 
 #write.csv(results,"/Volumes/schnyer/stephanie/sleep_algorithm_project/results/model_fit_change_probs.csv",row.names=FALSE)
