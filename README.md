@@ -12,5 +12,3 @@ Information about the data: https://www.ncbi.nlm.nih.gov/pubmed/18274276
 
 
 Please examine the **Sherman sleep algorithm.pdf** for details and preliminary results
-
-Please examine the **Sherman sleep algorithm.pdf** for details and preliminary result
